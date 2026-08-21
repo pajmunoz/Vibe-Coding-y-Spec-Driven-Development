@@ -1,8 +1,0 @@
-target/
-.git/
-.gitignore
-.kiro/
-*.md
-*.iml
-.idea/
-.vscode/
