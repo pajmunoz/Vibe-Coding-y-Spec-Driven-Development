@@ -1,0 +1,10 @@
+services:
+  cotizador-front:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cotizador-front:1.0.0
+    container_name: cotizador-front
+    ports:
+      - "3001:80"       # Accede en http://localhost:3001
+    network_mode: bridge  # Misma red bridge donde corre el backend (172.17.0.2)

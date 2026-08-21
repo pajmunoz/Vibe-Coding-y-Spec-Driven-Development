@@ -1,0 +1,311 @@
+/* =============================================
+   Estilos - Cotizador de Reparación de Calzado
+   ============================================= */
+
+/* --- Reset y base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #1a1a2e;
+  background-color: #f4f6fb;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+}
+
+/* --- Contenedor principal --- */
+.contenedor-principal {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 100%;
+  max-width: 560px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #16213e;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e0e6f0;
+  padding-bottom: 0.75rem;
+}
+
+/* --- Indicador de carga del catálogo --- */
+.indicador-carga {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #5a6a85;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.indicador-carga::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #c8d4e8;
+  border-top-color: #3a7bd5;
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+/* --- Formulario --- */
+#formulario-cotizacion {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.campo-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #2d3748;
+}
+
+/* --- Selector (select) --- */
+select {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #c8d4e8;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  color: #1a1a2e;
+  background-color: #ffffff;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235a6a85' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+select:focus {
+  outline: none;
+  border-color: #3a7bd5;
+  box-shadow: 0 0 0 3px rgba(58, 123, 213, 0.2);
+}
+
+/* --- Fieldset de reparaciones --- */
+fieldset {
+  border: 1px solid #c8d4e8;
+  border-radius: 5px;
+  padding: 0.75rem 1rem;
+}
+
+legend {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #2d3748;
+  padding: 0 0.4rem;
+}
+
+#lista-reparaciones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+#lista-reparaciones label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+#lista-reparaciones input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #3a7bd5;
+}
+
+/* --- Checkbox urgente --- */
+.campo-urgente label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.campo-urgente input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #e07b39;
+}
+
+/* --- Estado deshabilitado --- */
+select:disabled,
+input:disabled,
+fieldset:disabled,
+fieldset:disabled input,
+fieldset:disabled label {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+fieldset:disabled {
+  background-color: #f9fafc;
+}
+
+/* --- Botón Cotizar --- */
+.boton-primario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.5rem;
+  background-color: #3a7bd5;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s, opacity 0.2s;
+  width: 100%;
+}
+
+.boton-primario:hover:not(:disabled) {
+  background-color: #2c63b8;
+}
+
+.boton-primario:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.boton-primario:disabled,
+.boton-primario[aria-disabled="true"] {
+  background-color: #a0b4d0;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* --- Spinner del botón --- */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: girar 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+/* --- Animación de giro --- */
+@keyframes girar {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Mensaje de error en línea --- */
+.mensaje-error {
+  background-color: #fff0f0;
+  border: 1px solid #e53e3e;
+  border-left: 4px solid #e53e3e;
+  border-radius: 4px;
+  color: #c53030;
+  font-size: 0.9rem;
+  padding: 0.6rem 0.9rem;
+}
+
+/* --- Panel de resultado --- */
+.panel-resultado {
+  margin-top: 1.75rem;
+  padding: 1.25rem;
+  background-color: #f0f7ff;
+  border: 1px solid #bee3f8;
+  border-radius: 6px;
+}
+
+.panel-resultado h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #16213e;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #bee3f8;
+  padding-bottom: 0.5rem;
+}
+
+.detalle-cotizacion {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1rem;
+}
+
+.detalle-cotizacion dt {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #4a5568;
+}
+
+.detalle-cotizacion dd {
+  font-size: 0.95rem;
+  color: #1a1a2e;
+  text-align: right;
+}
+
+.valor-total {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #2c63b8;
+}
+
+/* --- Enlace de reintento dentro del mensaje de error --- */
+.mensaje-error a {
+  color: #c53030;
+  font-weight: 600;
+  text-underline-offset: 2px;
+}
+
+.mensaje-error a:hover {
+  color: #9b2c2c;
+}
+
+/* --- Utilidad: oculto --- */
+.oculto {
+  display: none !important;
+}
+
+/* --- Responsive --- */
+@media (max-width: 480px) {
+  .contenedor-principal {
+    padding: 1.25rem;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .detalle-cotizacion {
+    grid-template-columns: 1fr;
+  }
+
+  .detalle-cotizacion dd {
+    text-align: left;
+    margin-bottom: 0.25rem;
+  }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cotizador de Reparación de Calzado</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+  <div class="contenedor-principal">
+    <h1>Cotizador de Reparación de Calzado</h1>
+
+    <!-- Indicador de carga del catálogo -->
+    <div id="indicador-carga-catalogo" class="indicador-carga" aria-live="polite">
+      Cargando catálogo...
+    </div>
+
+    <!-- Formulario principal -->
+    <form id="formulario-cotizacion" novalidate>
+
+      <!-- Selector de tipo de calzado -->
+      <div class="campo-formulario">
+        <label for="selector-tipo-calzado">Tipo de calzado</label>
+        <select id="selector-tipo-calzado" name="tipo-calzado" disabled aria-required="true">
+          <option value="">-- Selecciona un tipo --</option>
+        </select>
+      </div>
+
+      <!-- Lista de reparaciones -->
+      <div class="campo-formulario">
+        <fieldset id="fieldset-reparaciones" disabled>
+          <legend>Tipos de reparación</legend>
+          <div id="lista-reparaciones" role="group" aria-label="Tipos de reparación disponibles">
+            <!-- Los checkboxes se renderizan dinámicamente desde js/app.js -->
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- Servicio urgente -->
+      <div class="campo-formulario campo-urgente">
+        <label>
+          <input
+            type="checkbox"
+            id="checkbox-urgente"
+            name="urgente"
+            disabled
+          />
+          Servicio urgente
+        </label>
+      </div>
+
+      <!-- Mensaje de error en línea -->
+      <div
+        id="mensaje-error"
+        class="mensaje-error oculto"
+        role="alert"
+        aria-live="assertive"
+      ></div>
+
+      <!-- Botón Cotizar -->
+      <div class="campo-formulario">
+        <button
+          type="button"
+          id="boton-cotizar"
+          class="boton-primario"
+          disabled
+          aria-disabled="true"
+        >
+          <span id="texto-boton-cotizar">Cotizar</span>
+          <span id="spinner-cotizar" class="spinner oculto" aria-hidden="true"></span>
+        </button>
+      </div>
+
+    </form>
+
+    <!-- Panel de resultado (oculto hasta obtener respuesta exitosa) -->
+    <section
+      id="panel-resultado"
+      class="panel-resultado oculto"
+      aria-live="polite"
+      aria-label="Resultado de la cotización"
+    >
+      <h2>Resultado de la Cotización</h2>
+      <dl class="detalle-cotizacion">
+        <dt>Subtotal</dt>
+        <dd id="resultado-subtotal">—</dd>
+
+        <dt>Recargo</dt>
+        <dd id="resultado-recargo">—</dd>
+
+        <dt>Total</dt>
+        <dd id="resultado-total" class="valor-total">—</dd>
+
+        <dt>Tiempo estimado</dt>
+        <dd id="resultado-tiempo-estimado">—</dd>
+      </dl>
+    </section>
+
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
