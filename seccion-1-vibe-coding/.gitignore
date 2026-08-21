@@ -1,0 +1,5 @@
+# Credenciales — nunca subir a git
+.env
+
+# Datos persistidos localmente
+mysql_data/
