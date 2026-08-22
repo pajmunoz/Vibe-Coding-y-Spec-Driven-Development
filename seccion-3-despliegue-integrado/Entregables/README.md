@@ -33,3 +33,4 @@ seccion-3-despliegue-integrado/
 1. 📝 **[Bitácora de Vibe Coding](Bitacora/README.md):** Registro cronológico de prompts, acciones y justificaciones técnicas (mínimo 10 líneas según 4.8).
 2. 🧪 **[Guion de Pruebas Manuales](Guion-Pruebas/README.md):** Validación de los 7 escenarios de aceptación Gherkin en el navegador.
 3. 💭 **[Preguntas de Reflexión](Preguntas/README.md):** Análisis crítico y comparación de metodologías (Sección 4.9).
+4. 📸 **[Capturas](Capturas/):** Evidencias del despliegue (`docker compose ps`, aislamiento del backend) y de los siete escenarios probados en el navegador.
