@@ -65,8 +65,8 @@ export async function obtenerTiposReparacion() {
  * Envía el payload de cotización y devuelve el resultado calculado.
  * POST /api/cotizaciones
  *
- * @param {{ tipoCalzadoId: number|string, reparaciones: Array<number|string>, urgente: boolean }} payload
- * @returns {Promise<{subtotal: number, recargo: number, total: number, tiempoEstimado: string}>}
+ * @param {{ calzadoId: string, reparacionIds: Array<string>, urgente: boolean }} payload
+ * @returns {Promise<{subtotal: number, recargo: number, total: number, tiempoEstimadoDias: number}>}
  */
 export async function generarCotizacion(payload) {
   const response = await fetch(`${API_BASE_URL}/cotizaciones`, {

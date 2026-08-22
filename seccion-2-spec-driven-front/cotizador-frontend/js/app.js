@@ -59,8 +59,8 @@ let _cotizando = false;
  */
 function construirRequestCotizacion(estado) {
   return {
-    tipoCalzadoId: estado.calzadoSeleccionado,
-    reparaciones: [...estado.reparacionesSeleccionadas],
+    calzadoId: estado.calzadoSeleccionado,
+    reparacionIds: [...estado.reparacionesSeleccionadas],
     urgente: estado.urgente,
   };
 }
@@ -135,7 +135,9 @@ function _renderizarResultado(cotizacionResultado) {
   resultadoSubtotal.textContent       = fmt(cotizacionResultado.subtotal);
   resultadoRecargo.textContent        = fmt(cotizacionResultado.recargo);
   resultadoTotal.textContent          = fmt(cotizacionResultado.total);
-  resultadoTiempoEstimado.textContent = cotizacionResultado.tiempoEstimado ?? '—';
+  resultadoTiempoEstimado.textContent = cotizacionResultado.tiempoEstimadoDias != null
+    ? `${cotizacionResultado.tiempoEstimadoDias} día(s)`
+    : '—';
 
   panelResultado.classList.remove('oculto');
 }
