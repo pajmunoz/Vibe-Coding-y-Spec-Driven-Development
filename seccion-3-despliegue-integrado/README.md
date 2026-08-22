@@ -23,13 +23,16 @@ Este proyecto integra los tres componentes del sistema en un único ambiente Doc
                      ▼                                 ▼
             Archivos Frontend            ┌──────────────────────────────┐
           (cotizador-frontend)           │   tallerdae-backend (Java)   │ (Puerto 8080 interno)
-                                         └──────────────┬───────────────┘
-                                                        │
-                                                        ▼
+                                         │   persistencia en memoria    │
+                                         └──────────────────────────────┘
+
                                          ┌──────────────────────────────┐
                                          │    tallerdae-db (MySQL 8)    │ (Puerto 3306)
+                                         │  disponible para el bonus    │
                                          └──────────────────────────────┘
 ```
+
+> El backend usa el repositorio en memoria que admite la especificación de la Sección 2, así que hoy no se conecta a MySQL. El servicio `db` queda levantado y saludable para quien quiera hacer el bonus de persistencia del Paso 5.
 
 ---
 
